@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="in_3">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>190</y>
+     <x>310</x>
+     <y>180</y>
      <width>71</width>
      <height>23</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>140</y>
+     <x>190</x>
+     <y>130</y>
      <width>51</width>
      <height>16</height>
     </rect>
@@ -42,8 +42,8 @@
   <widget class="QLabel" name="err_3">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>100</y>
+     <x>240</x>
+     <y>90</y>
      <width>221</width>
      <height>16</height>
     </rect>
@@ -59,8 +59,8 @@
   <widget class="QPushButton" name="rg_3">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>190</y>
+     <x>390</x>
+     <y>180</y>
      <width>71</width>
      <height>23</height>
     </rect>
@@ -72,8 +72,8 @@
   <widget class="QPushButton" name="Exit_3">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>270</y>
+     <x>390</x>
+     <y>260</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -85,8 +85,8 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>100</y>
+     <x>190</x>
+     <y>90</y>
      <width>47</width>
      <height>13</height>
     </rect>
@@ -98,8 +98,8 @@
   <widget class="QLineEdit" name="login_3">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>120</y>
+     <x>190</x>
+     <y>110</y>
      <width>271</width>
      <height>20</height>
     </rect>
@@ -108,11 +108,24 @@
   <widget class="QLineEdit" name="passw_3">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>160</y>
+     <x>190</x>
+     <y>150</y>
      <width>271</width>
      <height>20</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Back_3">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>230</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
    </property>
   </widget>
  </widget>

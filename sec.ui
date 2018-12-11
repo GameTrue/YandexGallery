@@ -115,6 +115,19 @@
     <string>Login:</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="Back_2">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>230</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

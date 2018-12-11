@@ -8,7 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_Form(object):
+class Ui_Form2(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(640, 380)
@@ -39,6 +39,9 @@ class Ui_Form(object):
         self.label_4 = QtWidgets.QLabel(Form)
         self.label_4.setGeometry(QtCore.QRect(190, 90, 47, 13))
         self.label_4.setObjectName("label_4")
+        self.Back_2 = QtWidgets.QPushButton(Form)
+        self.Back_2.setGeometry(QtCore.QRect(390, 230, 75, 23))
+        self.Back_2.setObjectName("Back_2")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -51,4 +54,5 @@ class Ui_Form(object):
         self.label_3.setText(_translate("Form", "Password:"))
         self.in_2.setText(_translate("Form", "Login"))
         self.label_4.setText(_translate("Form", "Login:"))
+        self.Back_2.setText(_translate("Form", "Back"))
 

@@ -7,8 +7,6 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
-from wi import Ui_Form
 
 class Ui_Form1(object):
     def setupUi(self, Form):
@@ -36,14 +34,5 @@ class Ui_Form1(object):
         self.Exit_3.setText(_translate("Form", "Exit"))
         self.credits_2.setText(_translate("Form", "Credits"))
         self.login_3.setText(_translate("Form", "Login"))
-        self.login_3.clicked.connect(self.log_2)
         self.info_2.setText(_translate("Form", "Info"))
 
-    def log_2(self):
-        ex = MyWidget1()
-        ex.show()
-
-class MyWidget1(QMainWindow, Ui_Form):
-    def __init__(self):
-        super().__init__()
-        self.setupUi(self)

@@ -191,6 +191,7 @@ class Ui_Form4(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label_9.setText(_translate("Form", "9"))
         self.pixap.load('image.png')
+        self.pixap = self.pixap.scaled(131, 91, QtCore.Qt.KeepAspectRatio)
         self.label_9.setPixmap(self.pixap)
         self.label_10.setText(_translate("Form", "image"))
         self.label.setText(_translate("Form", "1"))

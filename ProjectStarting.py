@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPixmap
 
 
 class Ui_Form1(object):
@@ -74,9 +75,9 @@ class Ui_Form2(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.rg_2.setText(_translate("Form", "Registration"))
         self.Exit_2.setText(_translate("Form", "Exit"))
-        self.label_3.setText(_translate("Form", "Password:"))
+        self.label_3.setText(_translate("Form", "PIN:"))
         self.in_2.setText(_translate("Form", "Login"))
-        self.label_4.setText(_translate("Form", "Login:"))
+        self.label_4.setText(_translate("Form", "UserID:"))
         self.Back_2.setText(_translate("Form", "Back"))
 
 
@@ -122,10 +123,10 @@ class Ui_Form3(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.in_3.setText(_translate("Form", "Autorization"))
-        self.label_5.setText(_translate("Form", "Password:"))
+        self.label_5.setText(_translate("Form", "PIN:"))
         self.rg_3.setText(_translate("Form", "Create"))
         self.Exit_3.setText(_translate("Form", "Exit"))
-        self.label_6.setText(_translate("Form", "Login:"))
+        self.label_6.setText(_translate("Form", "UserID:"))
         self.Back_3.setText(_translate("Form", "Back"))
 
 
@@ -137,6 +138,8 @@ class Ui_Form4(object):
         self.label_9.setGeometry(QtCore.QRect(340, 250, 131, 91))
         self.label_9.setAlignment(QtCore.Qt.AlignCenter)
         self.label_9.setObjectName("label_9")
+        self.pixap = QPixmap()
+        self.label_9.setPixmap(self.pixap)
         self.label_10 = QtWidgets.QLabel(Form)
         self.label_10.setGeometry(QtCore.QRect(100, 70, 311, 231))
         self.label_10.setAlignment(QtCore.Qt.AlignCenter)
@@ -186,7 +189,9 @@ class Ui_Form4(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label_9.setText(_translate("Form", "1"))
+        self.label_9.setText(_translate("Form", "9"))
+        self.pixap.load('image.png')
+        self.label_9.setPixmap(self.pixap)
         self.label_10.setText(_translate("Form", "image"))
         self.label.setText(_translate("Form", "1"))
         self.Exit.setText(_translate("Form", "Exit"))

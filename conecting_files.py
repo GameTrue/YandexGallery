@@ -55,18 +55,27 @@ class MyWidget2(QMainWindow, Ui_Form3):
         self.Exit_3.clicked.connect(self.close)
 
     def reg(self):
-        with open('data.json', 'r') as out_file1:
-            data = json.load(out_file1)
-        with open('data.json', 'w') as out_file:
-            if len(self.passw_3.text()) < 8:
+        if len(self.login_3.text()) > 3:
+            if len(self.passw_3.text()) > 7:
+                with open('data.json', 'r') as out_file1:
+                    data = json.load(out_file1)
                 if self.login_3.text() not in data[0]:
-                    data[0][self.login_3.text()] = self.passw_3.text()
-                    print(data)
-                    json.dump(data, out_file, sort_keys=True, indent=4)
+                    with open('data.json', 'w') as out_file:
+                            data[0][self.login_3.text()] = self.passw_3.text()
+                            print(data)
+                            json.dump(data, out_file, sort_keys=True, indent=4)
                 else:
+                    self.login_3.setText('')
+                    self.passw_3.setText('')
                     self.err_3.setText('This ID is already being used.')
             else:
+                self.login_3.setText('')
+                self.passw_3.setText('')
                 self.err_3.setText("New password must be at least %d characters." % 8)
+        else:
+            self.login_3.setText('')
+            self.passw_3.setText('')
+            self.err_3.setText("New login must be at least %d characters." % 4)
 
 
 

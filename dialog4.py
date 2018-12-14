@@ -2,13 +2,13 @@
 
 # Form implementation generated from reading ui file 'four.ui'
 #
-# Created by: PyQt5 UI code generator 5.7
+# Created by: PyQt5 UI code generator 5.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_Form4(object):
+class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(640, 380)
@@ -58,6 +58,26 @@ class Ui_Form4(object):
         self.Back = QtWidgets.QPushButton(Form)
         self.Back.setGeometry(QtCore.QRect(510, 290, 75, 23))
         self.Back.setObjectName("Back")
+        self.Add_2 = QtWidgets.QPushButton(Form)
+        self.Add_2.setGeometry(QtCore.QRect(510, 100, 71, 23))
+        self.Add_2.setObjectName("Add_2")
+        self.Value = QtWidgets.QSpinBox(Form)
+        self.Value.setGeometry(QtCore.QRect(510, 170, 71, 22))
+        self.Value.setMaximum(9)
+        self.Value.setObjectName("Value")
+        self.Show_3 = QtWidgets.QPushButton(Form)
+        self.Show_3.setGeometry(QtCore.QRect(530, 200, 51, 23))
+        self.Show_3.setObjectName("Show_3")
+        self.Dele_4 = QtWidgets.QPushButton(Form)
+        self.Dele_4.setGeometry(QtCore.QRect(530, 230, 51, 23))
+        self.Dele_4.setObjectName("Dele_4")
+        self.Value_2 = QtWidgets.QSpinBox(Form)
+        self.Value_2.setGeometry(QtCore.QRect(510, 40, 71, 22))
+        self.Value_2.setMaximum(9)
+        self.Value_2.setObjectName("Value_2")
+        self.login_4 = QtWidgets.QLineEdit(Form)
+        self.login_4.setGeometry(QtCore.QRect(480, 70, 101, 20))
+        self.login_4.setObjectName("login_4")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -65,16 +85,29 @@ class Ui_Form4(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label_9.setText(_translate("Form", "1"))
+        self.label_9.setText(_translate("Form", "No Image"))
         self.label_10.setText(_translate("Form", "image"))
-        self.label.setText(_translate("Form", "1"))
+        self.label.setText(_translate("Form", "No Image"))
         self.Exit.setText(_translate("Form", "Exit"))
-        self.label_4.setText(_translate("Form", "1"))
-        self.label_6.setText(_translate("Form", "1"))
-        self.label_8.setText(_translate("Form", "1"))
-        self.label_2.setText(_translate("Form", "1"))
-        self.label_3.setText(_translate("Form", "1"))
-        self.label_7.setText(_translate("Form", "1"))
-        self.label_5.setText(_translate("Form", "1"))
+        self.label_4.setText(_translate("Form", "No Image"))
+        self.label_6.setText(_translate("Form", "No Image"))
+        self.label_8.setText(_translate("Form", "No Image"))
+        self.label_2.setText(_translate("Form", "No Image"))
+        self.label_3.setText(_translate("Form", "No Image"))
+        self.label_7.setText(_translate("Form", "No Image"))
+        self.label_5.setText(_translate("Form", "No Image"))
         self.Back.setText(_translate("Form", "Back"))
+        self.Add_2.setText(_translate("Form", "Add"))
+        self.Show_3.setText(_translate("Form", "Show"))
+        self.Dele_4.setText(_translate("Form", "Delete"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())
 

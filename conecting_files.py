@@ -74,6 +74,7 @@ class MyWidget2(QMainWindow, Ui_Form3):
                 if self.login_3.text() not in datas[0]:
                     with open('data.json', 'w') as out_file:
                         datas[0][self.login_3.text()] = self.passw_3.text()
+                        self.err_3.setText('')
                         # print(datas)
                         json.dump(datas, out_file, sort_keys=True, indent=4)
                 else:
@@ -81,7 +82,6 @@ class MyWidget2(QMainWindow, Ui_Form3):
                     self.passw_3.setText('')
                     self.err_3.setText('This ID is already being used.')
             else:
-                self.login_3.setText('')
                 self.passw_3.setText('')
                 self.err_3.setText("New password must be at least %d characters." % 8)
         else:

@@ -6,6 +6,8 @@ from ProjectStarting import Ui_Form3
 from ProjectStarting import Ui_Form4
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PIL import Image
+from PIL.ImageQt import ImageQt
+from PyQt5 import QtGui, QtCore
 
 
 class MyWidget(QMainWindow, Ui_Form1):
@@ -111,15 +113,12 @@ class MyWidget3(QMainWindow, Ui_Form4):
         with open('data.json', 'w') as out_file:
             print(dataf)
             json.dump(dataf, out_file, sort_keys=True, indent=4)
-        data1 = [self.label, self.label2, self.label3, self.label4, self.label5, self.label6, self.label7, self.label8, self.label9]
-        img = Image.new('RGBA', (dataf[1][login][self.Value_2.value()][0][0], dataf[1][login][self.Value_2.value()][0][1]), 'white')
-        pixels2 = img.load()
-        x, y = img.size
-        for i in range(x):
-            for y in range(y):
-                r, g, b = data[i][j]
-                pixels2[i, j] = r, g, b
-        img.save('imag.png')
+        data1 = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7, self.label_8, self.label_9]
+        qim = ImageQt(im)
+        pix = QtGui.QPixmap.fromImage(qim)
+        pix = pix.scaled(131, 91, QtCore.Qt.KeepAspectRatio)
+        data1[self.Value_2.value() - 1].setPixmap(pix)
+
 
 
 class Connector:

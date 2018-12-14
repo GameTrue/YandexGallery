@@ -202,6 +202,7 @@ class Ui_Form4(object):
         self.Dele_4 = QtWidgets.QPushButton(Form)
         self.Dele_4.setGeometry(QtCore.QRect(530, 230, 51, 23))
         self.Dele_4.setObjectName("Dele_4")
+        self.Dele_4.setVisible(False)
         self.Value_2 = QtWidgets.QSpinBox(Form)
         self.Value_2.setGeometry(QtCore.QRect(510, 40, 71, 22))
         self.Value_2.setMinimum(1)
@@ -210,6 +211,7 @@ class Ui_Form4(object):
         self.login_4 = QtWidgets.QLineEdit(Form)
         self.login_4.setGeometry(QtCore.QRect(480, 70, 101, 20))
         self.login_4.setObjectName("login_4")
+        self.label_10.setVisible(False)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)

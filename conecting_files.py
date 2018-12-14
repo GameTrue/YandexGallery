@@ -12,11 +12,17 @@ from PyQt5 import QtGui, QtCore
 
 class MyWidget(QMainWindow, Ui_Form1):
     def __init__(self, con):
+        self.flg = True
         self.con = con
         super().__init__()
         self.setupUi(self)
         self.login_3.clicked.connect(self.con.dia1)
         self.Exit_3.clicked.connect(self.close)
+        self.credits_2.clicked.connect(self.cred)
+
+    def cred(self):
+        self.label.setVisible(self.flg)
+        self.flg = False if self.flg == True else True
 
 
 class MyWidget1(QMainWindow, Ui_Form2):
@@ -94,7 +100,7 @@ class MyWidget3(QMainWindow, Ui_Form4):
         with open('data.json', 'r') as out_file2:
             dataf = json.load(out_file2)
         if login not in dataf[1]:
-            dataf[1][login] = [[] for _ in range(9)]
+            dataf[1][login] = [[[], [], []] for _ in range(9)]
             print(dataf)
         im = Image.open(self.login_4.text())
         pixels = im.load()
@@ -107,18 +113,19 @@ class MyWidget3(QMainWindow, Ui_Form4):
                 data[i].append([r, g, b])
         print(login)
         print(data)
-        dataf[1][login][self.Value_2.value()].append([x, y])
-        dataf[1][login][self.Value_2.value()].append(data)
+        dataf[1][login][self.Value_2.value() - 1][0] = [x, y]
+        dataf[1][login][self.Value_2.value() - 1][1] = data
         print(pixels)
-        with open('data.json', 'w') as out_file:
-            print(dataf)
-            json.dump(dataf, out_file, sort_keys=True, indent=4)
-        data1 = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7, self.label_8, self.label_9]
+        data1 = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7,
+                 self.label_8, self.label_9]
         qim = ImageQt(im)
         pix = QtGui.QPixmap.fromImage(qim)
         pix = pix.scaled(131, 91, QtCore.Qt.KeepAspectRatio)
         data1[self.Value_2.value() - 1].setPixmap(pix)
-
+        dataf[1][login][self.Value_2.value() - 1][2] = data1[self.Value_2.value() - 1]
+        with open('data.json', 'w') as out_file:
+            print(dataf)
+            json.dump(dataf, out_file, sort_keys=True, indent=4)
 
 
 class Connector:

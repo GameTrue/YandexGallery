@@ -100,47 +100,89 @@ class MyWidget3(QMainWindow, Ui_Form4):
         self.Exit.clicked.connect(self.close)
         self.Add_2.clicked.connect(self.Add_Image)
         self.Show_3.clicked.connect(self.BigIm)
-        data = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7,
-                 self.label_8, self.label_9]
-        with open('data.json', 'r') as out_file2:
-            dataf = json.load(out_file2)
-        print(dataf)
-        for i in range(9):
-            if dataf[1][login][i][2]:
-                im = Image.open(dataf[1][login][i][2])
-                qim = ImageQt(im)
-                pix = QtGui.QPixmap.fromImage(qim)
-                pix = pix.scaled(131, 91, QtCore.Qt.KeepAspectRatio)
-                data[i].setPixmap(pix)
+        # self.Dele_4.clicked.connect(self.deleted)
+        try:
+            data = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7,
+                    self.label_8, self.label_9]
+            with open('data.json', 'r') as out_file2:
+                dataf = json.load(out_file2)
+            print(dataf)
+            for i in range(9):
+                if dataf[1][login][i][1]:
+                    x, y = dataf[1][login][i][0]
+                    im = Image.new('RGB', (x, y), 'white')
+                    pixels2 = im.load()
+                    for j in range(x):
+                        for k in range(y):
+                            r, g, b = dataf[1][login][i][1][j][k]
+                            pixels2[j, k] = r, g, b
+                    im.save('im.png')
+                    qim = ImageQt(im)
+                    pix = QtGui.QPixmap.fromImage(qim)
+                    pix = pix.scaled(131, 91, QtCore.Qt.KeepAspectRatio)
+                    data[i].setPixmap(pix)
+        except Exception as a:
+            print(a)
         # for i in range(9):
         #     if dat[0][i][2]:
         #         data[i] = dat[i][2]
 
-
+    # def deleted(self):
+    #     try:
+    #         with open('data.json', 'r') as out_file2:
+    #             dat = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7,
+    #                    self.label_8, self.label_9]
+    #             data = json.load(out_file2)
+    #             with open('data.json', 'w') as out_file3:
+    #                 if data[1][login][self.Value.value() - 1][1]:
+    #                     print(data[1][login][self.Value.value() - 1])
+    #                     print(data[1][login][self.Value.value()])
+    #                     print(data[1][login][self.Value.value() + 1])
+    #                     data[1][login][self.Value.value() - 1] = [[], [], []]
+    #                     # dat[self.Value.value() - 1] = 'No Image'
+    #     except Exception as a:
+    #         print('Delete:', a)
 
     def BigIm(self):
-        if self.flg:
-            data = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7,
-                     self.label_8, self.label_9]
-            with open('data.json', 'r') as out_file2:
-                dataf = json.load(out_file2)
-            if dataf[1][login][self.Value.value() - 1][2]:
-                for x in data:
-                    x.setVisible(False)
-                im = Image.open(dataf[1][login][self.Value.value() - 1][2])
-                qim = ImageQt(im)
-                pix = QtGui.QPixmap.fromImage(qim)
-                pix = pix.scaled(311, 231, QtCore.Qt.KeepAspectRatio)
-                self.label_10.setPixmap(pix)
-                self.label_10.setVisible(True)
-                self.flg = False if self.flg is True else True
-        else:
-            data = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7,
-                    self.label_8, self.label_9]
-            for x in data:
-                x.setVisible(True)
-            self.label_10.setVisible(False)
-            self.flg = False if self.flg is True else True
+        try:
+            if self.flg:
+                data = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7,
+                        self.label_8, self.label_9]
+                with open('data.json', 'r') as out_file2:
+                    dataf = json.load(out_file2)
+                try:
+                    if dataf[1][login][self.Value.value() - 1][1] and dataf[1][login][self.Value.value() - 1][0] and \
+                            dataf[1][login][self.Value.value() - 1][2]:
+                        for x in data:
+                            x.setVisible(False)
+                        x, y = dataf[1][login][self.Value_2.value() - 1][0]
+                        im = Image.new('RGB', (x, y), 'white')
+                        pixels2 = im.load()
+                        for j in range(x):
+                            for k in range(y):
+                                r, g, b = dataf[1][login][self.Value_2.value() - 1][1][j][k]
+                                pixels2[j, k] = r, g, b
+                        qim = ImageQt(im)
+                        pix = QtGui.QPixmap.fromImage(qim)
+                        pix = pix.scaled(311, 231, QtCore.Qt.KeepAspectRatio)
+                        self.label_10.setPixmap(pix)
+                        self.label_10.setVisible(True)
+                        self.flg = False if self.flg is True else True
+                except Exception as a:
+                    print(a)
+            else:
+                try:
+                    data = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6,
+                            self.label_7,
+                            self.label_8, self.label_9]
+                    for x in data:
+                        x.setVisible(True)
+                    self.label_10.setVisible(False)
+                    self.flg = False if self.flg is True else True
+                except Exception as a:
+                    print(a)
+        except Exception as a:
+            print('Show:', a)
 
     def Add_Image(self):
         global login
@@ -159,11 +201,11 @@ class MyWidget3(QMainWindow, Ui_Form4):
                 for j in range(y):
                     r, g, b = pixels[i, j]
                     data[i].append([r, g, b])
-            print(login)
-            print(data)
-            # dataf[1][login][self.Value_2.value() - 1][0] = [x, y]
-            # dataf[1][login][self.Value_2.value() - 1][1] = data
-            print(pixels)
+            # print(login)
+            # print(data)
+            dataf[1][login][self.Value_2.value() - 1][0] = [x, y]
+            dataf[1][login][self.Value_2.value() - 1][1] = data
+            # print(pixels)
             data1 = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7,
                      self.label_8, self.label_9]
             qim = ImageQt(im)

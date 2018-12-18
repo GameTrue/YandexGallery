@@ -23,7 +23,10 @@ class MyWidget(QMainWindow, Ui_Form1):
 
     def cred(self):
         self.label.setVisible(self.flg)
-        self.flg = False if self.flg is True else True
+        if self.flg is True:
+            self.flg = False
+        else:
+            self.flg = True
 
 
 class MyWidget1(QMainWindow, Ui_Form2):
@@ -43,6 +46,9 @@ class MyWidget1(QMainWindow, Ui_Form2):
             if self.login_2.text() in data[0]:
                 if self.passw_2.text() == data[0][self.login_2.text()]:
                     login = self.login_2.text()
+                    self.login_2.setText('')
+                    self.passw_2.setText('')
+                    self.err_2.setText('')
                     self.con.dia3()
                 else:
                     self.err_2.setText('!!!WRONG PASSWORD!!!')
@@ -70,6 +76,9 @@ class MyWidget2(QMainWindow, Ui_Form3):
                         datas[0][self.login_3.text()] = self.passw_3.text()
                         self.err_3.setText('')
                         json.dump(datas, out_file, sort_keys=True, indent=4)
+                        self.login_3.setText('')
+                        self.passw_3.setText('')
+                        self.con.dia1
                 else:
                     self.login_3.setText('')
                     self.passw_3.setText('')
@@ -182,7 +191,10 @@ class MyWidget3(QMainWindow, Ui_Form4):
                     for x in data:
                         x.setVisible(True)
                     self.label_10.setVisible(False)
-                    self.flg = False if self.flg is True else True
+                    if self.flg is True:
+                        self.flg = False
+                    else:
+                        self.flg = True
                 except Exception as a:
                     print(a)
         except Exception as a:

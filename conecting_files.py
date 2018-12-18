@@ -1,3 +1,4 @@
+import sys
 import json
 from dialog1 import Ui_Form1
 from dialog2 import Ui_Form2
@@ -6,8 +7,8 @@ from dialog4 import Ui_Form4
 from PyQt5.QtWidgets import QMainWindow
 from PIL import Image
 from PIL.ImageQt import ImageQt
-from PyQt5 import QtGui, QtCore, QtWidgets
-
+from PyQt5 import QtGui, QtCore
+from PyQt5.QtWidgets import QApplication
 
 class MyWidget(QMainWindow, Ui_Form1):
     def __init__(self, con):
@@ -21,7 +22,7 @@ class MyWidget(QMainWindow, Ui_Form1):
 
     def cred(self):
         self.label.setVisible(self.flg)
-        self.flg = False if self.flg == True else True
+        self.flg = False if self.flg is True else True
 
 
 class MyWidget1(QMainWindow, Ui_Form2):
@@ -153,6 +154,7 @@ class MyWidget3(QMainWindow, Ui_Form4):
                         # print(data[1][login][self.Value.value() + 1])
                         data[1][login][self.Value.value() - 1] = [[], [], []]
                         # dat[self.Value.value() - 1] = QtWidgets.QLabel()
+                        connector.dia3()
                         json.dump(data, out_file3, sort_keys=True, indent=4)
                         # dat[self.Value.value() - 1] = 'No Image'
         except Exception as a:
@@ -264,14 +266,30 @@ class Connector:
         for x in lis:
             try:
                 x.close()
-            except Exception:
-                pass
+            except Exception as d:
+                print(d)
 
-
-# def con(n):
-#     data2.append(data[n]())
-#     # ex = data[n]()
-#     data2[-1].show()
-
-
-# data = [MyWidget, MyWidget1, MyWidget2]
+data2 = []
+login = '1'
+app = QApplication(sys.argv)
+try:
+    with open('data.json', 'x') as out_file:
+        dat = []
+        dat.append({'1': '1', 'FARELE': True})
+        dat.append({})
+        json.dump(dat, out_file, sort_keys=True, indent=4)
+except Exception:
+    try:
+        with open('data.json', 'r') as out_file:
+            data = json.load(out_file)
+    except Exception:
+        with open('data.json', 'w') as out_file:
+            dat = []
+            dat.append({'1': '1', 'FARELE': True})
+            dat.append({})
+            json.dump(dat, out_file, sort_keys=True, indent=4)
+connector = Connector()
+connector.dia()
+# ex = MyWidget2()
+# ex.show()
+sys.exit(app.exec_())

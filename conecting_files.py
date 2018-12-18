@@ -1,13 +1,12 @@
-import sys
 import json
-from ProjectStarting import Ui_Form1
-from ProjectStarting import Ui_Form2
-from ProjectStarting import Ui_Form3
-from ProjectStarting import Ui_Form4
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from dialog1 import Ui_Form1
+from dialog2 import Ui_Form2
+from dialog3 import Ui_Form3
+from dialog4 import Ui_Form4
+from PyQt5.QtWidgets import QMainWindow
 from PIL import Image
 from PIL.ImageQt import ImageQt
-from PyQt5 import QtGui, QtCore
+from PyQt5 import QtGui, QtCore, QtWidgets
 
 
 class MyWidget(QMainWindow, Ui_Form1):
@@ -92,6 +91,7 @@ class MyWidget2(QMainWindow, Ui_Form3):
 
 class MyWidget3(QMainWindow, Ui_Form4):
     def __init__(self, con):
+        global data2
         self.flg = True
         self.con = con
         super().__init__()
@@ -100,7 +100,19 @@ class MyWidget3(QMainWindow, Ui_Form4):
         self.Exit.clicked.connect(self.close)
         self.Add_2.clicked.connect(self.Add_Image)
         self.Show_3.clicked.connect(self.BigIm)
-        # self.Dele_4.clicked.connect(self.deleted)
+        self.Dele_4.clicked.connect(self.deleted)
+        try:
+            with open('data.json', 'r') as oute:
+                datak = json.load(oute)
+                if datak[0]['FARELE']:
+                    data2 = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6,
+                             self.label_7,
+                             self.label_8, self.label_9]
+                    datak[0]['FARELE'] = False
+                    with open('data.json', 'w') as inte:
+                        json.dump(datak, inte, sort_keys=True, indent=4)
+        except Exception as f:
+            print(f)
         try:
             data = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7,
                     self.label_8, self.label_9]
@@ -127,21 +139,24 @@ class MyWidget3(QMainWindow, Ui_Form4):
         #     if dat[0][i][2]:
         #         data[i] = dat[i][2]
 
-    # def deleted(self):
-    #     try:
-    #         with open('data.json', 'r') as out_file2:
-    #             dat = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7,
-    #                    self.label_8, self.label_9]
-    #             data = json.load(out_file2)
-    #             with open('data.json', 'w') as out_file3:
-    #                 if data[1][login][self.Value.value() - 1][1]:
-    #                     print(data[1][login][self.Value.value() - 1])
-    #                     print(data[1][login][self.Value.value()])
-    #                     print(data[1][login][self.Value.value() + 1])
-    #                     data[1][login][self.Value.value() - 1] = [[], [], []]
-    #                     # dat[self.Value.value() - 1] = 'No Image'
-    #     except Exception as a:
-    #         print('Delete:', a)
+    def deleted(self):
+        global data2
+        try:
+            with open('data.json', 'r') as out_file2:
+                dat = [self.label, self.label_2, self.label_3, self.label_4, self.label_5, self.label_6, self.label_7,
+                       self.label_8, self.label_9]
+                data = json.load(out_file2)
+                with open('data.json', 'w') as out_file3:
+                    if data[1][login][self.Value.value() - 1][1]:
+                        # print(data[1][login][self.Value.value() - 1])
+                        # print(data[1][login][self.Value.value()])
+                        # print(data[1][login][self.Value.value() + 1])
+                        data[1][login][self.Value.value() - 1] = [[], [], []]
+                        # dat[self.Value.value() - 1] = QtWidgets.QLabel()
+                        json.dump(data, out_file3, sort_keys=True, indent=4)
+                        # dat[self.Value.value() - 1] = 'No Image'
+        except Exception as a:
+            print('Delete:', a)
 
     def BigIm(self):
         try:
@@ -155,16 +170,16 @@ class MyWidget3(QMainWindow, Ui_Form4):
                             dataf[1][login][self.Value.value() - 1][2]:
                         for x in data:
                             x.setVisible(False)
-                        x, y = dataf[1][login][self.Value_2.value() - 1][0]
+                        x, y = dataf[1][login][self.Value.value() - 1][0]
                         im = Image.new('RGB', (x, y), 'white')
                         pixels2 = im.load()
                         for j in range(x):
                             for k in range(y):
-                                r, g, b = dataf[1][login][self.Value_2.value() - 1][1][j][k]
+                                r, g, b = dataf[1][login][self.Value.value() - 1][1][j][k]
                                 pixels2[j, k] = r, g, b
                         qim = ImageQt(im)
                         pix = QtGui.QPixmap.fromImage(qim)
-                        pix = pix.scaled(311, 231, QtCore.Qt.KeepAspectRatio)
+                        pix = pix.scaled(431, 311, QtCore.Qt.KeepAspectRatio)
                         self.label_10.setPixmap(pix)
                         self.label_10.setVisible(True)
                         self.flg = False if self.flg is True else True
@@ -260,27 +275,3 @@ class Connector:
 
 
 # data = [MyWidget, MyWidget1, MyWidget2]
-# data2 = []
-login = '1'
-app = QApplication(sys.argv)
-try:
-    with open('data.json', 'x') as out_file:
-        dat = []
-        dat.append({'1': '1'})
-        dat.append({})
-        json.dump(dat, out_file, sort_keys=True, indent=4)
-except Exception:
-    try:
-        with open('data.json', 'r') as out_file:
-            data = json.load(out_file)
-    except Exception:
-        with open('data.json', 'w') as out_file:
-            dat = []
-            dat.append({'1': '1'})
-            dat.append({})
-            json.dump(dat, out_file, sort_keys=True, indent=4)
-connector = Connector()
-connector.dia()
-# ex = MyWidget2()
-# ex.show()
-sys.exit(app.exec_())

@@ -6,12 +6,17 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPixmap
+
 
 class Ui_Form3(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(640, 380)
+        Form.setStyleSheet("QWidget { background-color: gray }")
         self.in_3 = QtWidgets.QPushButton(Form)
         self.in_3.setGeometry(QtCore.QRect(310, 180, 71, 23))
         self.in_3.setObjectName("in_3")
@@ -20,8 +25,7 @@ class Ui_Form3(object):
         self.label_5.setObjectName("label_5")
         self.err_3 = QtWidgets.QLabel(Form)
         self.err_3.setGeometry(QtCore.QRect(240, 90, 221, 16))
-        self.err_3.setStyleSheet("QLabel { color:red\n"
-"                            }")
+        self.err_3.setStyleSheet("QLabel { color:red }")
         self.err_3.setText("")
         self.err_3.setObjectName("err_3")
         self.rg_3 = QtWidgets.QPushButton(Form)
@@ -50,9 +54,8 @@ class Ui_Form3(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.in_3.setText(_translate("Form", "Autorization"))
-        self.label_5.setText(_translate("Form", "Password:"))
+        self.label_5.setText(_translate("Form", "PIN:"))
         self.rg_3.setText(_translate("Form", "Create"))
         self.Exit_3.setText(_translate("Form", "Exit"))
-        self.label_6.setText(_translate("Form", "Login:"))
+        self.label_6.setText(_translate("Form", "UserID:"))
         self.Back_3.setText(_translate("Form", "Back"))
-

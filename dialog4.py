@@ -6,20 +6,27 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPixmap
 
-class Ui_Form(object):
+
+class Ui_Form4(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(640, 380)
+        Form.setStyleSheet("QWidget { background-color: gray }")
         self.label_9 = QtWidgets.QLabel(Form)
         self.label_9.setGeometry(QtCore.QRect(340, 250, 131, 91))
         self.label_9.setAlignment(QtCore.Qt.AlignCenter)
         self.label_9.setObjectName("label_9")
+
         self.label_10 = QtWidgets.QLabel(Form)
-        self.label_10.setGeometry(QtCore.QRect(100, 70, 311, 231))
+        self.label_10.setGeometry(QtCore.QRect(40, 30, 431, 311))
         self.label_10.setAlignment(QtCore.Qt.AlignCenter)
         self.label_10.setObjectName("label_10")
+
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(40, 30, 131, 91))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
@@ -63,6 +70,7 @@ class Ui_Form(object):
         self.Add_2.setObjectName("Add_2")
         self.Value = QtWidgets.QSpinBox(Form)
         self.Value.setGeometry(QtCore.QRect(510, 170, 71, 22))
+        self.Value.setMinimum(1)
         self.Value.setMaximum(9)
         self.Value.setObjectName("Value")
         self.Show_3 = QtWidgets.QPushButton(Form)
@@ -71,13 +79,16 @@ class Ui_Form(object):
         self.Dele_4 = QtWidgets.QPushButton(Form)
         self.Dele_4.setGeometry(QtCore.QRect(530, 230, 51, 23))
         self.Dele_4.setObjectName("Dele_4")
+        # self.Dele_4.setVisible(False)
         self.Value_2 = QtWidgets.QSpinBox(Form)
         self.Value_2.setGeometry(QtCore.QRect(510, 40, 71, 22))
+        self.Value_2.setMinimum(1)
         self.Value_2.setMaximum(9)
         self.Value_2.setObjectName("Value_2")
         self.login_4 = QtWidgets.QLineEdit(Form)
         self.login_4.setGeometry(QtCore.QRect(480, 70, 101, 20))
         self.login_4.setObjectName("login_4")
+        self.label_10.setVisible(False)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -101,13 +112,11 @@ class Ui_Form(object):
         self.Show_3.setText(_translate("Form", "Show"))
         self.Dele_4.setText(_translate("Form", "Delete"))
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
-
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     Form = QtWidgets.QWidget()
+#     ui = Ui_Form()
+#     ui.setupUi(Form)
+#     Form.show()
+#     sys.exit(app.exec_())

@@ -6,12 +6,17 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPixmap
 
-class Ui_Form(object):
+
+class Ui_Form1(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(640, 380)
+        Form.setStyleSheet("QWidget { background-color: gray }")
         self.Exit_3 = QtWidgets.QPushButton(Form)
         self.Exit_3.setGeometry(QtCore.QRect(260, 170, 151, 31))
         self.Exit_3.setObjectName("Exit_3")
@@ -40,14 +45,13 @@ class Ui_Form(object):
         self.credits_2.setText(_translate("Form", "Credits"))
         self.login_3.setText(_translate("Form", "Login"))
         self.label.setText(_translate("Form", "Author and creator of this project: Alexander Fomin"))
+        self.label.setVisible(False)
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
-
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     Form = QtWidgets.QWidget()
+#     ui = Ui_Form()
+#     ui.setupUi(Form)
+#     Form.show()
+#     sys.exit(app.exec_())

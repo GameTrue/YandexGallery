@@ -8,6 +8,7 @@ class Ui_Form1(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(640, 380)
+        Form.setStyleSheet("QWidget { background-color: gray }")
         self.Exit_3 = QtWidgets.QPushButton(Form)
         self.Exit_3.setGeometry(QtCore.QRect(260, 170, 151, 31))
         self.Exit_3.setObjectName("Exit_3")
@@ -43,6 +44,7 @@ class Ui_Form2(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(640, 380)
+        Form.setStyleSheet("QWidget { background-color: gray }")
         self.rg_2 = QtWidgets.QPushButton(Form)
         self.rg_2.setGeometry(QtCore.QRect(390, 180, 71, 23))
         self.rg_2.setObjectName("rg_2")
@@ -92,6 +94,7 @@ class Ui_Form3(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(640, 380)
+        Form.setStyleSheet("QWidget { background-color: gray }")
         self.in_3 = QtWidgets.QPushButton(Form)
         self.in_3.setGeometry(QtCore.QRect(310, 180, 71, 23))
         self.in_3.setObjectName("in_3")
@@ -141,15 +144,17 @@ class Ui_Form4(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(640, 380)
+        Form.setStyleSheet("QWidget { background-color: gray }")
         self.label_9 = QtWidgets.QLabel(Form)
         self.label_9.setGeometry(QtCore.QRect(340, 250, 131, 91))
         self.label_9.setAlignment(QtCore.Qt.AlignCenter)
         self.label_9.setObjectName("label_9")
 
         self.label_10 = QtWidgets.QLabel(Form)
-        self.label_10.setGeometry(QtCore.QRect(100, 70, 311, 231))
+        self.label_10.setGeometry(QtCore.QRect(40, 30, 431, 311))
         self.label_10.setAlignment(QtCore.Qt.AlignCenter)
         self.label_10.setObjectName("label_10")
+
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(40, 30, 131, 91))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
@@ -202,7 +207,7 @@ class Ui_Form4(object):
         self.Dele_4 = QtWidgets.QPushButton(Form)
         self.Dele_4.setGeometry(QtCore.QRect(530, 230, 51, 23))
         self.Dele_4.setObjectName("Dele_4")
-        self.Dele_4.setVisible(False)
+        # self.Dele_4.setVisible(False)
         self.Value_2 = QtWidgets.QSpinBox(Form)
         self.Value_2.setGeometry(QtCore.QRect(510, 40, 71, 22))
         self.Value_2.setMinimum(1)

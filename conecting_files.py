@@ -51,8 +51,11 @@ class MyWidget1(QMainWindow, Ui_Form2):
                     self.err_2.setText('')
                     self.con.dia3()
                 else:
+                    self.passw_2.setText('')
                     self.err_2.setText('!!!WRONG PASSWORD!!!')
             else:
+                self.login_2.setText('')
+                self.passw_2.setText('')
                 self.err_2.setText('!!!LOGIN NOT FOUND!!!')
 
 

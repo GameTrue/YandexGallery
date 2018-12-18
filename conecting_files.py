@@ -81,7 +81,7 @@ class MyWidget2(QMainWindow, Ui_Form3):
                         json.dump(datas, out_file, sort_keys=True, indent=4)
                         self.login_3.setText('')
                         self.passw_3.setText('')
-                        self.con.dia1
+                        # self.con.dia1
                 else:
                     self.login_3.setText('')
                     self.passw_3.setText('')
